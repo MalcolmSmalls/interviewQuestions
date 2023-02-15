@@ -44,3 +44,44 @@ function selectionSort(arr) {
 }
 
 console.log(selectionSort([5, 6, 2, 4]))
+
+function flatten(arr) {
+  let newArr = []
+  if (arr.length === 0) {
+    return newArr
+  }
+  if (!Array.isArray(arr[0])) {
+    newArr.push(arr[0])
+  } else {
+    return (newArr = newArr.concat(flatten(arr.slice(1))))
+  }
+}
+
+console.log(flatten([1, 2, 3, [4, 5]]))
+
+// function insertionSort(arr) {
+//   for (let i = 1; i < arr.length; i++) {
+//     let currentVal = arr[i]
+//     for (let j = i - 1; j >= 0 && arr[j] > currentVal; j--) {
+//       arr[j + 1] = arr[j]
+//     }
+//     arr[j + 1] = currentVal
+//   }
+//   return arr
+// }
+
+// console.log(insertionSort([3, 2, 5, 1]))
+
+function insertionSort(arr) {
+  var currentVal
+  for (var i = 1; i < arr.length; i++) {
+    currentVal = arr[i]
+    for (var j = i - 1; j >= 0 && arr[j] > currentVal; j--) {
+      arr[j + 1] = arr[j]
+    }
+    arr[j + 1] = currentVal
+  }
+  return arr
+}
+
+console.log(insertionSort([5, 4, 3, 2, 1]))
